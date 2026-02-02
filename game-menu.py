@@ -9,8 +9,14 @@ print("3 for Sudoku")
 print("4 to Quit")
 script_dir = Path(__file__).parent.resolve()
 sudoku_file = script_dir/"games_file"/"sudoku.py"
+print(sudoku_file)
+print(sudoku_file.exists())
 GTN_file = script_dir/"games_file"/"guess-the-number.py"
+print(GTN_file)
+print(GTN_file.exists())
 TTT_file = script_dir/"games_file"/"tic-tac-toe.exe"
+print(TTT_file)
+print(TTT_file.exists())
 
 while True:
     input1 = int(input(""))
