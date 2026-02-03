@@ -7,12 +7,14 @@ print("1 for Tic Tac Toe")
 print("2 for Guess The Number")
 print("3 for Sudoku")
 print("4 for Number Base Convertor")
-print("5 to Quit")
+print("5 for Calculator")
+print("6 to Quit")
 script_dir = Path(__file__).parent.resolve()
 sudoku_file = script_dir/"games_file"/"sudoku.py"
 GTN_file = script_dir/"games_file"/"guess-the-number.py"
 TTT_file = script_dir/"games_file"/"tic-tac-toe.exe"
 NBC_file = script_dir/"games_file"/"number-base-convertor.py"
+calc_file = script_dir/"games_file"/"calculator.py"
 
 while True:
     try:
@@ -42,7 +44,12 @@ while True:
             else:
                 print("Game not found")
         case 5:
+            if calc_file.exists():
+                subprocess.run(["python", str(calc_file)])
+            else:
+                print("Game not found")
+        case 6:
             break
         case _:
-            print("Enter number between 1 to 5")
+            print("Enter number between 1 to 6")
     
