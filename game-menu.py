@@ -6,37 +6,43 @@ print("Select")
 print("1 for Tic Tac Toe")
 print("2 for Guess The Number")
 print("3 for Sudoku")
-print("4 to Quit")
+print("4 for Number Base Convertor")
+print("5 to Quit")
 script_dir = Path(__file__).parent.resolve()
 sudoku_file = script_dir/"games_file"/"sudoku.py"
-print(sudoku_file)
-print(sudoku_file.exists())
 GTN_file = script_dir/"games_file"/"guess-the-number.py"
-print(GTN_file)
-print(GTN_file.exists())
 TTT_file = script_dir/"games_file"/"tic-tac-toe.exe"
-print(TTT_file)
-print(TTT_file.exists())
+NBC_file = script_dir/"games_file"/"number-base-convertor.py"
 
 while True:
-    input1 = int(input(""))
-    if input1 in range(1,5):
-        if input1 == 4:
-            break
-        if input1 == 1:
+    try:
+        choice = int(input(""))
+    except ValueError:
+        print("Please enter a number")
+        continue
+    match choice:
+        case 1:
             if TTT_file.exists():
                 subprocess.run([str(TTT_file)])
             else:
                 print("Game not found")
-        if input1 == 2:
+        case 2:
             if GTN_file.exists():
                 subprocess.run(["python", str(GTN_file)])
             else:
                 print("Game not found")
-        if input1 == 3:
+        case 3:
             if sudoku_file.exists():
                 subprocess.run(["python", str(sudoku_file)])
             else:
-                print("Game not found")        
-    else:
-        print("Enter number between 1 to 4")
+                print("Game not found")
+        case 4:
+            if NBC_file.exists():
+                subprocess.run(["python", str(NBC_file)])
+            else:
+                print("Game not found")
+        case 5:
+            break
+        case _:
+            print("Enter number between 1 to 5")
+    
